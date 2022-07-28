@@ -67,8 +67,8 @@ def run_single_camera(cfg):
     camera = set_camera_parameters(cfg)
 
     # warm-up the camera
-    print(" -- warming up the camera (2 seconds) --")
-    sleep(2)
+    print(" -- warming up the camera (5 seconds) --")
+    sleep(5)
 
     # capture frames from the camera
     start = datetime.datetime.now()
@@ -96,8 +96,9 @@ def run_single_camera(cfg):
                            only_last=True)
         else:
             print("\n -- Extracting frames -- \n")
+            frate="_"+str(1/cfg["capture"]["framerate"])+"Hz"
             out = os.path.join(cfg["data"]["output"],
-                               start.strftime("%Y%m%d_%H%M"))
+                               start.strftime("%Y%m%d_%H%M")+frate)
             extract_frames(fname, out, start, cfg["data"]["format"])
 
 
@@ -132,8 +133,8 @@ def extract_frames(inp, out, date, ext, only_last=False):
         # call ffmpeg
         print("\n --- Calling FFMPEG ---\n")
         dt = date.strftime("%Y%m%d_%H%M")
-        cmd = "ffmpeg -i {} {}/000000-{}_%06d.{} > /dev/null 2>&1".format(
-            inp, out, dt, ext)
+        cmd = "ffmpeg -i {} -q 1 {}/%06d.{} > /dev/null 2>&1".format(
+            inp, out, ext)
         subprocess.call(cmd, shell=True)
         print("\n --- FFMPEG finished extracting frames ---\n")
 

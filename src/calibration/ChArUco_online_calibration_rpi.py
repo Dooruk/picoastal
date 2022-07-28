@@ -203,7 +203,7 @@ def main():
         squares_x, squares_y, square_length, marker_length, dictionary)
 
     # set camera parameters
-    inp = args.config
+    inp = args.config[0]
     if os.path.isfile(inp):
         with open(inp, "r") as f:
             cfg = json.load(f)
@@ -252,7 +252,7 @@ def main():
 
                 # draw board on image
                 im_with_board = cv2.aruco.drawDetectedCornersCharuco(
-                    frame, ref_corners, ref_ids, (0, 0, 0))
+                    image, ref_corners, ref_ids, (0, 0, 0))
                 im_with_board = cv2.aruco.drawDetectedMarkers(
                     im_with_board, corners, ids)
 

@@ -39,7 +39,7 @@ if __name__ == '__main__':
     keys = ["last_frame", "distortion_coefficients", "camera_matrix",
             "translation_vectors", "rotation_vectors", "corners", "ids",
             ]
-
+    #print(x)
     for key in keys:
         if key not in x.keys():
             print("Fatal: Key {} not present in input data.".format(key))

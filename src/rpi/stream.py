@@ -62,7 +62,7 @@ def run_single_camera(cfg):
 
     # warm-up the camera
     print("  -- warming up the camera --")
-    sleep(2)
+    sleep(5)
     print("  -- starting now --")
 
     # capture frames from the camera

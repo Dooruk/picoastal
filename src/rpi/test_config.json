@@ -1,0 +1,34 @@
+{
+    "data": {
+        "output": "/home/ardagd/",
+        "hours": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 , 19],
+        "format": "png"
+    },
+    "capture": {
+        "duration": 100,
+        "framerate": 2,
+        "resolution": [1920, 1080]
+    },
+    "stream": {
+        "framerate": 30,
+        "resolution": [640, 480]
+    },
+    "exposure": {
+        "mode": "beach",
+        "set_iso": false,
+        "iso": 300
+    },
+    "h264": {
+        "quality": 25,
+        "sei": true,
+        "sps_timing": true
+
+    },
+    "post_processing": {
+        "extract_frames": true,
+        "only_last_frame": true,
+        "notify": true,
+        "average": false,
+        "deviation": false
+    }
+}
